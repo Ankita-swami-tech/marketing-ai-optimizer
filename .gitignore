@@ -1,0 +1,35 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# JSON Keys / Credentials
+sheets_key.json
+service_account.json
+credentials.json
+apikey.json
+
+# Python Cache & Virtual Environment
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Node.js (if any)
+node_modules/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
