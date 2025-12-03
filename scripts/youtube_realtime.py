@@ -1,9 +1,18 @@
 from googleapiclient.discovery import build
+from dotenv import load_dotenv
 import pandas as pd
 import os
 
-API_KEY = "YOUR_API_KEY"   # ← put your actual key here
+# Load environment variables
+load_dotenv()
 
+# Read API key from .env file
+API_KEY = os.getenv("YOUTUBE_API_KEY")
+
+if not API_KEY:
+    raise ValueError("❌ ERROR: YOUTUBE_API_KEY not found in .env file!")
+
+# Initialize YouTube API client
 youtube = build(
     "youtube",
     "v3",
@@ -13,8 +22,8 @@ youtube = build(
 
 query = "digital marketing"
 
-MAX_RESULTS = 100      # <-- you requested 100 results
-PER_REQUEST = 50       # maximum YouTube allows per call
+MAX_RESULTS = 100     # requested results
+PER_REQUEST = 50      # YouTube API limit per call
 
 all_items = []
 next_page_token = None
@@ -38,7 +47,7 @@ while len(all_items) < MAX_RESULTS:
     if not next_page_token:
         break  # no more pages
 
-# Trim to exactly 100
+# Trim list to exactly 100 videos
 all_items = all_items[:MAX_RESULTS]
 
 # Build DataFrame
@@ -54,7 +63,7 @@ for item in all_items:
 
 df = pd.DataFrame(data)
 
-# Save CSV
+# Save CSV to /data folder
 os.makedirs("data", exist_ok=True)
 df.to_csv("data/youtube_latest.csv", index=False, encoding="utf-8")
 
