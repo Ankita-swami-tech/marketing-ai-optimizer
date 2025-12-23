@@ -12,3 +12,4 @@ pandas
 numpy
 textblob
 scikit-learn
+matplotlib
