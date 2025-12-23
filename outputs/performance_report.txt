@@ -1,0 +1,7 @@
+PERFORMANCE METRICS REPORT
+===========================
+Total Posts: 100
+Average Sentiment Score: 0.143
+Positive Posts: 32
+Negative Posts: 5
+Neutral Posts: 63

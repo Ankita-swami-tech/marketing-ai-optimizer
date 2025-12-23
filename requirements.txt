@@ -7,3 +7,8 @@ pandas
 requests
 Flask
 python-dotenv
+streamlit
+pandas
+numpy
+textblob
+scikit-learn
